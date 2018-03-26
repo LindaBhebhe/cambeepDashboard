@@ -1,1 +1,1 @@
-"# cambeepDashboard" 
+"# cambeep-dashboard" 
