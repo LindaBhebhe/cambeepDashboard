@@ -1,4 +1,4 @@
-<script type="text/javascript" src="../Controller/controlScript.js"></script> 
+
 <?php
 
  
@@ -174,74 +174,7 @@ mysqli_close($con);
 }
 }
 
-//******** Function to view all the stationery requests
-function get_all_equipment1_requests(){
-  
-    $con = getdb();
-    $Sql = "SELECT * FROM borrowed_equipment WHERE status ='pending'";
-    $result = mysqli_query($con, $Sql);  
 
-   
-    if (mysqli_num_rows($result)>0 ) {
-
-         echo "<div class='table-responsive'>
-              <table id='myTable' class='table table-striped table-bordered'>
-                         <thead>
-                          <th>Date</th>
-                          <th>By</th>
-                          <th>Item</th>
-                          <th>Quantity</th>
-                          <th>Collection_date</th>
-                          <th>Return_date</th>
-                          <th>Rem</th>
-                          <th>Clear</th>
-                        </tr></thead><tbody>";
-    
-           echo "<tbody>";  
-            while($row = mysqli_fetch_assoc($result)){ 
-
-            $item_id = $row['item_id'];
-             echo $item_id;
-            $sql2 = "SELECT item_name FROM equipment WHERE item_id = '$item_id' ";
-            $result2 = mysqli_query($con, $sql2); 
-
-            while($row2 = mysqli_fetch_assoc($result2)) 
-
-        echo "<tr>
-                   <td>" . $row['request_date'] .
-              "</td><td>" . $row['request_by'] .
-              "</td><td>" . $row2['item_name'] .
-              "</td><td>" . $row['quantity'] .
-              "</td><td>" . $row['collection_by'] .
-              "</td>
-              <td>"
-              ?>
-
-              <form name="rem" method="GET" action = "rem.php">
-               <input  name="rem" id="rem" type="text" tabindex="1"  required>
-               </form>
-
-               <?php  
-                 echo "</td>";
-                 echo "<td>";
-                 ?>
-
-                <form name="clear" method="GET" action = "clear.php">
-               <button name="clear" type="submit" id="clearBtn" class="btn btn-primary"  onclick="Complete()" >Clear</button> 
-               </form>
-               <?php  
-                echo "</td>";
-
-}
-echo "</tbody>";
-mysqli_close($con);                         
-     echo "</table></div>";
-     
-}
- else {
-     echo "you have no records";
-}
-}
 
 // Function to view all the equipment requests
 function get_all_equipment_requests(){
@@ -326,47 +259,26 @@ function get_all_stationery(){
               <table id='myTable' class='table table-striped table-bordered'>
                          <thead>
                           <th>Date</th>
-                          <th>By</th>
                           <th>Item</th>
                           <th>Quantity</th>
-                          <th>Collection_by</th>
-                          <th>Rem</th>
-                          <th>Clear</th>
+                          <th>Received_by</th>
+                    
                         </tr></thead><tbody>";
     
            echo "<tbody>";  
             while($row = mysqli_fetch_assoc($result)){ 
 
-            $item_id = $row['item_id'];
+            
 
-            $sql2 = "SELECT item_name FROM stationery WHERE id = '$item_id' ";
-            $result2 = mysqli_query($con, $sql2); 
-
-            while($row2 = mysqli_fetch_assoc($result2)) 
 
         echo "<tr>
-                   <td>" . $row['request_date'] .
-              "</td><td>" . $row['request_by'] .
-              "</td><td>" . $row2['item_name'] .
+                   <td>" . $row['date_in'] .
+              "</td><td>" . $row['item_name'] .
               "</td><td>" . $row['quantity'] .
-              "</td><td>" . $row['collection_by'] .
+              "</td><td>" . $row['received_by'] .
               "</td>
-              <td>"
-              ?>
-
-              <form name="rem" method="GET" action = "rem.php">
-               <input  name="rem" id="rem" type="text" tabindex="1"  required>
-               </form>
-
-               <?php  
-                 echo "</td>";
-                 echo "<td>";
-                 ?>
-
-                <form name="clear" method="GET" action = "clear.php">
-               <button name="clear" type="submit" id="clearBtn" class="btn btn-primary"  onclick="Complete()" >Clear</button> 
-               </form>
-               <?php  
+              <td>";
+             
                 echo "</td>";
 
 }
@@ -380,6 +292,55 @@ mysqli_close($con);
 }
 }
 
+
+
+function get_all_equipment(){
+  
+    $con = getdb();
+    $Sql = "SELECT * FROM equipment ";
+    $result = mysqli_query($con, $Sql);  
+
+   
+    if (mysqli_num_rows($result)>0 ) {
+
+        echo "<div class='table-responsive'>
+              <table id='myTable' class='table table-striped table-bordered'>
+                         <thead>
+                          <th>Date</th>
+                          <th>Item</th>
+                          <th>Specs</th>
+                          <th>Quantity</th>
+                          <th>Received_by</th>
+                    
+                        </tr></thead><tbody>";
+    
+           echo "<tbody>";  
+            while($row = mysqli_fetch_assoc($result)){ 
+
+            
+
+
+        echo "<tr>
+                   <td>" . $row['date_in'] .
+              "</td><td>" . $row['item_name'] .
+              "</td><td>" . $row['specs'] .
+              "</td><td>" . $row['quantity'] .
+              "</td><td>" . $row['received_by'] .
+              "</td>
+              <td>";
+             
+                echo "</td>";
+
+}
+echo "</tbody>";
+mysqli_close($con);                         
+     echo "</table></div>";
+     
+}
+ else {
+     echo "you have no records";
+}
+}
 
 
 

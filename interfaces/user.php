@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 
+
+                                  
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/Camfed-Logo.jpg" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Cambeep Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -60,15 +62,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./addStationery.php">
-                            <i class="material-icons">content_paste</i>
-                            <p>Add Stationery</p>
+                        <a href="./allStationery.php">
+                            <i class="material-icons">library_books</i>
+                            <p>All Stationery</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./addEquipment.php">
-                            <i class="material-icons">content_paste</i>
-                            <p>Add Equipment</p>
+                        <a href="./allEquipment.php">
+                            <i class="material-icons">library_books</i>
+                            <p>All Equipment</p>
+                        </a>
+                    </li>
+                      <li>
+                        <a href="./allRequests.php">
+                            <i class="material-icons">library_books</i>
+                            <p>All Requests</p>
                         </a>
                     </li>
                     <li>
@@ -90,7 +98,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> </a>
+                        <a class="navbar-brand" href="#"> User data</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">

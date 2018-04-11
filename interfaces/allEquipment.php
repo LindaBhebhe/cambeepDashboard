@@ -96,7 +96,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> All Stationery </a>
+                        <a class="navbar-brand" href="#"> All Equipment</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -151,15 +151,9 @@
                 </div>
             </nav>
             <div class="content">
-              <!--  <?php
-                    ##Require('../classes/supportFunctions.php');
-                       get_all_stationery();
-                    
-                  ?> -->
-
-                  <?php
-                    Require('../classes/plotEquipment.php');
-                       plotEquipment();
+               <?php
+                    Require('../classes/supportFunctions.php');
+                       get_all_equipment();
                     
                   ?>
             </div>
