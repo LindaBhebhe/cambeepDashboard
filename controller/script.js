@@ -7,12 +7,12 @@ function validateAddStationeryModal(){
 	var checked = true;
 
 	//get item
-	var item = document.getElementById('name');
-	alert("the item is " + item);
+	var item = document.getElementById('name').value;
+	alert("the item is " + item.value);
 	console.log(item);
 
     //get password input and error message
-	var quantity = document.getElementById('quantity');	
+	var quantity = document.getElementById('quantity').value;	
 	alert("the quantity is " + quantity);
 
 	//check if the item input is empty
@@ -40,10 +40,10 @@ function validateAddStationeryModal(){
 
 function addStationery(){
 	
-    var item = document.getElementById('name');
+    var item = document.getElementById('name').value;
      alert("successfully added new stationery" + item);
 
-	var quantity = document.getElementById('quantity');	
+	var quantity = document.getElementById('quantity').value;	
 	
 	if (window.XMLHttpRequest) {
 		alert("in the if");
@@ -72,3 +72,9 @@ function addStationery(){
 
 
 		}
+
+
+		 function validateDeleteStationeryModal(clicked_id){
+
+          alert("The clicked id is" + clicked_id);
+          }
