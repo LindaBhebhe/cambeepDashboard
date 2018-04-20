@@ -38,18 +38,19 @@
                ]);
 
             var options = {
-                title: 'Avalable Stationery',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
+           title: 'All Stationery',
+          is3D: 'true',
+          width: 1000,
+          height: 1100
+        };
 
-            var chart = new google.visualization.AreaChart(document.getElementById('areachart'));
+            var chart = new google.visualization.PieChart(document.getElementById('areachart'));
             chart.draw(data, options);
         }
 
     </script>
 </head>
 <body>
-     <div id="areachart" style="width: 2000px; height: 300px"></div>
+     <div id="areachart" style="width: 700px; height: 900px"></div>
 </body>
 </html>

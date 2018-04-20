@@ -13,7 +13,7 @@ $servername = "localhost";
     {
         //echo ("Connect Successfully");
     }
-    $query = "SELECT item_name, quantity FROM equipment"; // select column
+    $query = "SELECT item_name, quantity FROM stationery"; // select column
     $sth = $con->query($query);
 
 
@@ -79,7 +79,7 @@ $jsonTable = json_encode($table);
       // Create our data table out of JSON data loaded from server.
       var data = new google.visualization.DataTable(<?=$jsonTable?>);
       var options = {
-           title: 'My Weekly Plan',
+           title: ' All Stationery',
           is3D: 'true',
           width: 800,
           height: 600

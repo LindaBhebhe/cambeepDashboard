@@ -1,6 +1,6 @@
 
    <?php
-$servername = "localhost";
+    $servername = "localhost";
     $username = "root";
     $password = "";  //your database password
     $dbname = "cambeep";  //your database name
@@ -14,26 +14,13 @@ $servername = "localhost";
     {
         //echo ("Connect Successfully");
     }
-    $query = "SELECT item_name, quantity FROM equipment"; // select column
+    $query = "SELECT item_name, quantity FROM equipment"; 
     $sth = $con->query($query);
 
 
-
-
-/*
----------------------------
-example data: Table (Chart)
---------------------------
-weekly_task     percentage
-Sleep           30
-Watching Movie  40
-work            44
-*/
-
-//flag is not needed
-$flag = true;
-$table = array();
-$table['cols'] = array(
+    $flag = true;
+    $table = array();
+    $table['cols'] = array(
 
     // Labels for your chart, these represent the column titles
     // Note that one column is in "string" format and another one is in "number" format as pie chart only required "numbers" for calculating percentage and string will be used for column title
@@ -55,19 +42,8 @@ while($r = mysqli_fetch_assoc($sth)) {
 
 $table['rows'] = $rows;
 $jsonTable = json_encode($table);
-//echo $jsonTable;
+
 ?>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!doctype html>
@@ -102,9 +78,9 @@ $jsonTable = json_encode($table);
     google.load('visualization', '1', {'packages':['corechart']});
 
     // Set a callback to run when the Google Visualization API is loaded.
-    google.setOnLoadCallback(drawChart);
+    google.setOnLoadCallback(drawChart2);
 
-    function drawChart() {
+    function drawChart2() {
 
       // Create our data table out of JSON data loaded from server.
       var data = new google.visualization.DataTable(<?=$jsonTable?>);
@@ -116,10 +92,13 @@ $jsonTable = json_encode($table);
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div2'));
       chart.draw(data, options);
     }
     </script>
+
+
+
 
 </head>
 
@@ -127,7 +106,7 @@ $jsonTable = json_encode($table);
     <div class="wrapper">
         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href="http://www.camfed.org" class="simple-text">
                   CamBeep
                 </a>
             </div>
@@ -215,7 +194,7 @@ $jsonTable = json_encode($table);
                                         <a href="#">Equipment running out: 2</a>
                                     </li>
                                     <li>
-                                        <a href="#">You have 2 urgent requests</a>
+                                        <a href="#">Urgent requests: 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -396,18 +375,30 @@ $jsonTable = json_encode($table);
 
                     </div>
 
-                      
-
+                     <div class="content" id="chart_div2" >
+                        
+                   
+                    </div>
 
 
                     <div class="content" id="chart_div" >
-                        
 
-                       Place table here
-                        <!--this is the div that will hold the pie chart-->
-                    
+                    <?php
+                    Require('plotStationery.php');
+                    ?>
 
                     </div>
+                  
+
+                    <div class="content" id="areachart" >
+                        
+                    <?php
+                    #Require('plotStationery.php');
+                    ?>
+                    </div> 
+
+                    
+
                     </div>
                 </div>
             </div>
@@ -440,15 +431,6 @@ $jsonTable = json_encode($table);
 
 <!-- Material Dashboard javascript methods -->
 <script src="../assets/js/material-dashboard.js?v=1.2.0"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="../assets/js/demo.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
 
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-    });
-</script>
 
 </html>

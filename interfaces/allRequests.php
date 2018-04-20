@@ -96,7 +96,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> All Equipment</a>
+                        <a class="navbar-brand" href="#"> All Requests</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -159,11 +159,14 @@ Require('../classes/supportFunctions.php');
 
 if($_GET){
     if(isset($_GET['support'])){
-        insert();
-    }elseif(isset($_GET['equipment'])){
-        select();
-    }elseif(isset($_GET['stationery'])){
-        select();
+     get_all_support_requests();
+
+    }
+    elseif(isset($_GET['equipment'])){
+        get_all_equipment_requests();
+    }
+    elseif(isset($_GET['stationery'])){
+        get_all_stationery_requests();
     }
 
 
@@ -173,6 +176,8 @@ if($_GET){
     {
        echo "The select function is called.";
     }
+
+
     function insert()
     {
        echo "The insert function is called.";

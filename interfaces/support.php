@@ -147,7 +147,7 @@
                 </div>
             </nav>
             <div class="content">
-               <?php
+                 <?php
                     Require('../classes/supportFunctions.php');
                        get_all_requests();
                     
