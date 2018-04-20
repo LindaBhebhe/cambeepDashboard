@@ -376,12 +376,12 @@ $(document).ready(function(){
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 						<input type="submit" class="btn btn-info" value="Save">
 					</div>
-				</form>
+				</form>s
 			</div>
 		</div>
 	</div>
 	<!-- Delete Modal HTML -->
-	<div id="deleteEmployeeModal" class="modal fade">
+	<div id="deleteModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
@@ -397,7 +397,7 @@ $(document).ready(function(){
 
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-danger" value="Delete" onclick="validateDeleteStationeryModal(this.id)">
+						<button type="submit" name="delete" id = "deleteRow" class="btn btn-danger" onclick="deleteStationery(this.value)">Delete</button>
 					</div>
 
 				</form>

@@ -67,14 +67,83 @@ function addStationery(){
 
           //call the send to the php file on the server 
 		 // xhttp.open("GET", "https://watchmeorg.000webhostapp.com/cambeeplogin.php?username="+usern+"&password="+pass, true);		  
-		  xhttp.open("GET", "http://localhost:81/cambeepDashboard/classes/addStationery.php?item="+item+"&quantity="+quantity, true);	  
+		  xhttp.open("GET", "http://localhost:81/cambeepDashboard/classes/stationeryFunctions.php?item="+item+"&quantity="+quantity, true);	  
 		  xhttp.send();
 
 
 		}
 
 
-		 function validateDeleteStationeryModal(clicked_id){
+function deleteStationery(clicked_id){
 
-          alert("The clicked id is" + clicked_id);
+  alert("The clicked id is" + clicked_id);
+
+  if (window.XMLHttpRequest) {
+		alert("in the if");
+				xhttp = new XMLHttpRequest();
+				} else {
+			
+				xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhttp.onreadystatechange = function() {
+                 console.log("in the on readyState");
+				if (this.readyState == 4 && this.status == 200) {				
+					if (this.responseText == "successful"){
+						 window.location.href = "../classes/stationeryOperations.php";
+						alert("successful");
+                       
+                     }
+                    
+                }
+        };
+          
+
+          //call the send to the php file on the server 
+		 // xhttp.open("GET", "https://watchmeorg.000webhostapp.com/cambeeplogin.php?username="+usern+"&password="+pass, true);		  
+		  xhttp.open("GET", "http://localhost:81/cambeepDashboard/classes/deleteStationery.php?id="+clicked_id, true);	  
+		  xhttp.send();
+
           }
+
+
+   function updateStationery(clicked_id){
+
+  alert("The clicked id is" + clicked_id);
+  var quantity = document.getElementById('quantity').value;
+
+  if (window.XMLHttpRequest) {
+		alert("in the if");
+				xhttp = new XMLHttpRequest();
+				} else {
+			
+				xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhttp.onreadystatechange = function() {
+                 console.log("in the on readyState");
+				if (this.readyState == 4 && this.status == 200) {				
+					if (this.responseText == "successful"){
+						 window.location.href = "../classes/stationeryOperations.php";
+						alert("successful");
+                       
+                     }
+                    
+                }
+        };
+          
+
+          //call the send to the php file on the server 
+		 // xhttp.open("GET", "https://watchmeorg.000webhostapp.com/cambeeplogin.php?username="+usern+"&password="+pass, true);		  
+		  xhttp.open("GET", "http://localhost:81/cambeepDashboard/classes/updateStationery.php?id="+clicked_id+"&quantity="+quantity, true);	  
+		  xhttp.send();
+
+          }
+
+          function getId(clicked){
+          	alert("get id");
+
+          	document.getElementById("deleteRow").value = clicked;
+
+          	 $('#deleteModal').modal('show');
+          }
+
+

@@ -48,9 +48,9 @@ Require('supportFunctions.php');
 
                         echo'
            
-                            <a href="#editEmployeeModal" class="edit" id="'.$row['id'].'" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a class="edit" id="'.$row['id'].'" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 
-                            <a href="#deleteEmployeeModal" class="delete" id="'.$row['id'].'"data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a class="delete" onclick="getId(this.id)" id="'.$row['id'].'"data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>';
               }
@@ -58,9 +58,5 @@ Require('supportFunctions.php');
     // }
   }
 
-  function add_stationery(){
-
-    echo "adding stationery";
-  }
 
     ?>
