@@ -151,17 +151,13 @@
                 </div>
             </nav>
             <div class="content">
-              <!--  <?php
-                    ##Require('../classes/supportFunctions.php');
-                       get_all_stationery();
+                 <?php
+                    Require('../classes/supportFunctions.php');
+                        get_all_stationery();
                     
-                  ?> -->
+                  ?> 
 
-                  <?php
-                    Require('../classes/plotEquipment.php');
-                       plotEquipment();
-                    
-                  ?>
+                 
             </div>
             <footer class="footer">
                 <div class="container-fluid">
