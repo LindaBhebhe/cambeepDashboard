@@ -57,4 +57,9 @@ Require('supportFunctions.php');
     // }
   }
 
+  function add_stationery(){
+
+    echo "adding stationery";
+  }
+
     ?>

@@ -143,15 +143,15 @@ $jsonTable = json_encode($table);
                         </a>
                     </li>
                     <li>
-                        <a href="./allStationery.php">
+                        <a href="./allEquipment.php">
                             <i class="material-icons">content_paste</i>
-                            <p>All Stationery</p>
+                            <p>All Equipment</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../classes/test.php">
+                        <a href="../classes/stationeryOperations.php">
                             <i class="material-icons">content_paste</i>
-                            <p>All Equipment</p>
+                            <p>All Stationery </p>
                         </a>
                     </li>
                     <li>

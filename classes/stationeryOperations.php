@@ -259,7 +259,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-
+  <script type="text/javascript" src="../controller/script.js"></script>
 
     
     <div class="container">
@@ -309,13 +309,16 @@ $(document).ready(function(){
     </div>
 
 
+    <!-- <?php
+    //include("supportFunctions.php");
 
+    ?> -->
 
-	<!-- Edit Modal HTML -->
+	<!--  Add stationery modal -->
 	<div id="addStationeryModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form >
 					<div class="modal-header">						
 						<h4 class="modal-title">Add Stationery</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -323,22 +326,25 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Item name</label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" id="name" required>
 						</div>
 
 						<div class="form-group">
 							<label>Quantity</label>
-							<input type="email" class="form-control" required>
+							<input type="number" class="form-control" id="quantity" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
+						<input type="submit" class="btn btn-success" onclick="validateAddStationeryModal()" value="Add">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
+    
+
 	<!-- Edit Modal HTML -->
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
