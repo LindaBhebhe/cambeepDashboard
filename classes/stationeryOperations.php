@@ -346,35 +346,71 @@ $(document).ready(function(){
     
 
 	<!-- Edit Modal HTML -->
-	<div id="editEmployeeModal" class="modal fade">
+	<div id="updateModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Edit Employee</h4>
+						<h4 class="modal-title">Edit Record</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
-						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" required>
+					<div class="modal-body">
+					     <?php
+
+					      $Sql = "SELECT * FROM stationery WHERE id = 10";
+                          $result = mysqli_query($con, $Sql); 
+
+                          $row = mysqli_fetch_assoc($result);
+
+                          ?>
+
+
+
+                          <div class="form-group">
+							<label>Item name</label>
+							<input type="text"  value="<?php echo $row['item_name']?>" class="form-control" id="updateName" required>
 						</div>
+
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
+							<label>Quantity</label>
+							<input type="number" class="form-control" value="<?php echo $row['quantity']?>" id="updateQuantity" required>
 						</div>
-						<div class="form-group">
-							<label>Address</label>
-							<textarea class="form-control" required></textarea>
+
+
+						<!-- <div class="form-group">
+							<label>Item name</label>
+							  <select id="updateName" name="updateName" required>
+							  	
+                               <?php
+            
+     
+            /* $Sql = "SELECT * FROM stationery";
+             $result = mysqli_query($con, $Sql);  
+            
+            while($row = mysqli_fetch_assoc($result)){ 
+            $cdTitle=$row["item_name"];
+                echo "<option>
+                    $cdTitle
+                </option>";
+            
+            }*/
+                
+            ?>
+
+
+							  </select>
+							
 						</div>
+
 						<div class="form-group">
-							<label>Phone</label>
-							<input type="text" class="form-control" required>
-						</div>					
+							<label>Quantity</label>
+							<input type="number" class="form-control" id="updateQuantity" required>
+						</div>	 -->
+
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-info" value="Save">
+						<button type="submit" name="update" id = "updateRow" class="btn btn-info" onclick="updateStationery(this.value)">update</button>
 					</div>
 				</form>s
 			</div>

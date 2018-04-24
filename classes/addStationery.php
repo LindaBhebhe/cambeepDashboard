@@ -19,7 +19,7 @@ if(isset($_REQUEST['item'])){
     $status ="pending";
 
    
-    echo "about to insert";
+    echo "about to insert";+
     console.log("about to insert");
     console.log($item);
     $item2= marker;

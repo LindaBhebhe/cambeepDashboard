@@ -109,7 +109,11 @@ function deleteStationery(clicked_id){
    function updateStationery(clicked_id){
 
   alert("The clicked id is" + clicked_id);
-  var quantity = document.getElementById('quantity').value;
+  var item = document.getElementById('updateName').value;
+     alert("updating" + item);
+
+  var quantity = document.getElementById('updateQuantity').value;	
+	
 
   if (window.XMLHttpRequest) {
 		alert("in the if");
@@ -144,6 +148,16 @@ function deleteStationery(clicked_id){
           	document.getElementById("deleteRow").value = clicked;
 
           	 $('#deleteModal').modal('show');
+          }
+
+
+          function getUpdateId(clicked){
+          	alert("get update id 2");
+          	document.getElementById("updateRow").value = clicked;
+
+          	 $('#updateModal').modal('show');
+           
+
           }
 
 
