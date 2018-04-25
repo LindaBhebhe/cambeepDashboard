@@ -1,7 +1,8 @@
 
-<?php
 
- 
+
+ <script type="text/javascript" src="../controller/script.js"></script>
+ <?php
 
 //CONNECTING TO THE DATABASE
 function getdb(){
@@ -124,8 +125,8 @@ function get_all_stationery_requests(){
                           <th>Item</th>
                           <th>Quantity</th>
                           <th>Collection_by</th>
-                          <th>Rem</th>
-                          <th>Clear</th>
+                        
+                          <th>Check-out</th>
                         </tr></thead><tbody>";
     
            echo "<tbody>";  
@@ -145,8 +146,19 @@ function get_all_stationery_requests(){
               "</td><td>" . $row['quantity'] .
               "</td><td>" . $row['collection_by'] .
               "</td>
-              <td>"
-              ?>
+              <td>";
+
+              
+             
+
+
+              echo'
+
+                            <a class="delete" onclick="getdisId(this.id)" id="'.$row['id'].'"data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>';
+
+             /* ?>
 
               <form name="rem" method="GET" action = "rem.php">
                <input  name="rem" id="rem" type="text" tabindex="1"  required>
@@ -158,9 +170,9 @@ function get_all_stationery_requests(){
                  ?>
 
                 <form name="clear" method="GET" action = "clear.php">
-               <button name="clear" type="submit" id="clearBtn" class="btn btn-primary"  onclick="Complete()" >Clear</button> 
+               <button name="clear" type="submit" id="'.$row['id'].' onclick="clear()" >Clear</button> 
                </form>
-               <?php  
+               <?php */ 
                 echo "</td>";
 
 }
@@ -173,6 +185,94 @@ mysqli_close($con);
      echo "you have no records";
 }
 }
+
+
+function  get_all_stationery_requests_for_approval(){
+
+    $user = $_SESSION['username'];
+   
+    $con = getdb();
+    //$Sql = "SELECT * FROM stationery_out WHERE approver = '$user'";
+        $Sql = "SELECT * FROM stationery_out WHERE approver = 'P Jamu'";
+    $result = mysqli_query($con, $Sql);  
+
+   
+    if (mysqli_num_rows($result)>0 ) {
+
+        echo "<div class='table-responsive'>
+              <table id='myTable' class='table table-striped table-bordered'>
+                         <thead>
+                          <th>Date</th>
+                          <th>By</th>
+                          <th>Item</th>
+                          <th>Quantity</th>
+                          <th>Collection_by</th>
+                          <th>Approve</th>
+                        </tr></thead><tbody>";
+    
+           echo "<tbody>";  
+            while($row = mysqli_fetch_assoc($result)){ 
+
+            $item_id = $row['item_id'];
+
+            $sql2 = "SELECT item_name FROM stationery WHERE id = '$item_id' ";
+            $result2 = mysqli_query($con, $sql2); 
+
+            while($row2 = mysqli_fetch_assoc($result2)) 
+
+        echo "<tr>
+                   <td>" . $row['request_date'] .
+              "</td><td>" . $row['request_by'] .
+              "</td><td>" . $row2['item_name'] .
+              "</td><td>" . $row['quantity'] .
+              "</td><td>" . $row['collection_by'] .
+              "</td>
+              <td>";
+
+              
+             
+
+
+              echo'
+
+                            <a class="delete" onclick="getApproveId(this.id)" id="'.$row['id'].'"data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        </td>
+                    </tr>';
+
+             /* ?>
+
+              <form name="rem" method="GET" action = "rem.php">
+               <input  name="rem" id="rem" type="text" tabindex="1"  required>
+               </form>
+
+               <?php  
+                 echo "</td>";
+                 echo "<td>";
+                 ?>
+
+                <form name="clear" method="GET" action = "clear.php">
+               <button name="clear" type="submit" id="'.$row['id'].' onclick="clear()" >Clear</button> 
+               </form>
+               <?php */ 
+                echo "</td>";
+
+}
+echo "</tbody>";
+mysqli_close($con);                         
+     echo "</table></div>";
+     
+}
+ else {
+     echo "You have no requests for approval";
+}
+
+
+}
+
+
+
+
+
 
 
 

@@ -1,4 +1,8 @@
 <!doctype html>
+<?php 
+
+if(session_status()!=PHP_SESSION_ACTIVE) session_start();
+ ?>
 <html lang="en">
 
 <head>
@@ -110,7 +114,7 @@
             <div class="content">
                <?php
                     Require('../classes/supportFunctions.php');
-                       get_all_stationery_requests();
+                       get_all_stationery_requests_for_approval();
                     
                   ?>
             </div>
@@ -118,7 +122,7 @@
 
 
 
-        <div id="checkOutStationeryModal" class="modal fade">
+        <div id="approveModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form>
@@ -128,13 +132,13 @@
                     </div>
 
                     <div class="modal-body">                    
-                        <p>Are you sure you want to checkout the stationery?</p>
+                        <p>Are you sure you want to approve the stationery?</p>
                         <p class="text-warning"><small>You cannot undo this action</small></p>
                     </div>
 
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="NO-Cancel">
-                        <button type="submit" name="delete" id = "checkoutRow" class="btn btn-success" onclick="checkOutStationery(this.value)">Yes</button>
+                        <button type="submit" name="delete" id = "approveRow" class="btn btn-success" onclick="approveStationery(this.value)">Yes</button>
                     </div>
 
                 </form>
